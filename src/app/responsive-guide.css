@@ -1,0 +1,115 @@
+/* Responsive Design Media Query Reference for DFA Studio */
+
+/* 
+  Tailwind Breakpoints Used:
+  - sm: 640px
+  - md: 768px
+  - lg: 1024px
+  - xl: 1280px
+  - 2xl: 1536px
+*/
+
+/* Mobile First Approach - Base styles are for mobile, then progressively enhanced */
+
+/* Screens below 480px (Extra Small Mobile) */
+@media (max-width: 480px) {
+  /* Touch-friendly minimum sizing */
+  button, input, select, textarea {
+    min-height: 44px; /* iOS minimum */
+    min-width: 44px;  /* Square buttons */
+  }
+
+  /* Reduce spacing on very small screens */
+  .p-4 { padding: 0.625rem; }
+  .gap-4 { gap: 0.625rem; }
+  .space-y-4 > * + * { margin-top: 0.625rem; }
+}
+
+/* Small Phones (480px - 640px) */
+@media (min-width: 480px) and (max-width: 640px) {
+  /* Slightly larger text and spacing */
+  body { font-size: 14px; }
+}
+
+/* Tablets and small desktops (768px and up) */
+@media (min-width: 768px) {
+  /* Show desktop elements */
+  .lg\\:block { display: block; }
+  
+  /* Full-sized controls */
+  button { min-height: 40px; }
+}
+
+/* Large desktops (1024px and up) */
+@media (min-width: 1024px) {
+  /* Optimized layout for wider screens */
+  body { font-size: 16px; }
+}
+
+/* Landscape orientation - adjust for wide but short screens */
+@media (orientation: landscape) and (max-height: 500px) {
+  /* Reduce vertical spacing */
+  .header { padding: 0.5rem 1rem; }
+  .gap-4 { gap: 0.5rem; }
+}
+
+/* Portrait orientation - phones */
+@media (orientation: portrait) {
+  /* Optimize for portrait viewing */
+  .portrait\\:block { display: block; }
+}
+
+/* Print media */
+@media print {
+  .no-print { display: none !important; }
+  .print\\:block { display: block; }
+}
+
+/* Retina displays (high DPI) */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Slightly thinner borders on high-DPI devices */
+  border { border-width: 0.75px; }
+}
+
+/* Touch devices */
+@media (hover: none) and (pointer: coarse) {
+  /* Increase button size for touch */
+  button { padding: 12px 16px; }
+  
+  /* Add more spacing */
+  .gap-2 { gap: 12px; }
+  .gap-3 { gap: 16px; }
+  
+  /* Remove hover states that aren't applicable */
+  button:hover { opacity: 0.9; }
+}
+
+/* Devices with hover capability */
+@media (hover: hover) {
+  /* Enable hover effects */
+  button:hover { background-color: var(--hover-bg); }
+  a:hover { text-decoration: underline; }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: more) {
+  body {
+    --border: 0 0% 50%;
+    --foreground: 0 0% 100%;
+  }
+}
+
+/* Dark color scheme (if light mode were added) */
+@media (prefers-color-scheme: dark) {
+  /* Already implemented via CSS variables */
+}
